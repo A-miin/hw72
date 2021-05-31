@@ -1,13 +1,9 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}Главная{% endblock title %}
+<script src="{% static 'js/main.js' %}"></script>
 {% block content %}
-    <div class="сontainer" id="main-content">
+    <div class="сontainer" id="main-content"></div>
 
-    </div>
-{#    <div class="form">#}
-{#        <form action="api/quote" method="post">#}
-{#            {% include "partial/form.html" with button_text="Создать" %}#}
-{#        </form>#}
-{#    </div>#}
 
 {% endblock content %}

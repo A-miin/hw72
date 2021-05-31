@@ -8,11 +8,13 @@ from webapp.models import Quote
 from api.serializers import QuoteSerializer
 from django.shortcuts import get_object_or_404
 import json
-
 class QuoteList(generics.ListCreateAPIView):
-    queryset = Quote.objects.filter(is_moderated=True)
     serializer_class = QuoteSerializer
 
+    def get_queryset(self):
+        if not self.request.user.is_anonymous and self.request.user.is_staff:
+            return Quote.objects.all()
+        return Quote.objects.filter(is_moderated=True)
     # def get_queryset(self):
     #     if self.request.user.is_authenticated and self.request.user.has_perm()
 

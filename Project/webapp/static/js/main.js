@@ -53,3 +53,4 @@ function list(event) {
     main_content.append(result)
 }
 console.log('hello')
+list()
