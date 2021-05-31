@@ -13,9 +13,13 @@ class QuoteList(generics.ListCreateAPIView):
     queryset = Quote.objects.filter(is_moderated=True)
     serializer_class = QuoteSerializer
 
+    # def get_queryset(self):
+    #     if self.request.user.is_authenticated and self.request.user.has_perm()
+
 class QuoteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Quote.objects.filter(is_moderated=True)
     serializer_class = QuoteSerializer
+    permission_classes = [3]
 
 class QuoteRate(APIView):
     def get_object(self, pk):
