@@ -28,7 +28,7 @@
   "pk": 4,
   "fields": {
     "text": "Life is what happens when you're busy making other plans.",
-    "name": "John Lennon",
+    "name": "John Lennon John Lennon",
     "email": "John@Lennon.com",
     "rate": 0,
     "is_moderated": true,
@@ -57,6 +57,150 @@
     "rate": 0,
     "is_moderated": false,
     "created_at": "2021-05-31T10:05:49.315Z"
+  }
+},
+{
+  "model": "webapp.quote",
+  "pk": 7,
+  "fields": {
+    "text": "Be yourself; everyone else is already taken.",
+    "name": "Oscar Wilde",
+    "email": "Oscar@Wilde.com",
+    "rate": 0,
+    "is_moderated": false,
+    "created_at": "2021-06-05T08:51:50.439Z"
+  }
+},
+{
+  "model": "webapp.quote",
+  "pk": 8,
+  "fields": {
+    "text": "Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.",
+    "name": "Albert Einstein",
+    "email": "Albert@Einstein.com",
+    "rate": 0,
+    "is_moderated": true,
+    "created_at": "2021-06-05T08:52:43.621Z"
+  }
+},
+{
+  "model": "webapp.quote",
+  "pk": 9,
+  "fields": {
+    "text": "Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.",
+    "name": "Albert Einstein",
+    "email": "Albert@Einstein.com",
+    "rate": 0,
+    "is_moderated": false,
+    "created_at": "2021-06-05T09:15:05.641Z"
+  }
+},
+{
+  "model": "webapp.quote",
+  "pk": 10,
+  "fields": {
+    "text": "Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.",
+    "name": "Albert Einstein",
+    "email": "Albert@Einstein.com",
+    "rate": 0,
+    "is_moderated": false,
+    "created_at": "2021-06-05T09:15:08.430Z"
+  }
+},
+{
+  "model": "webapp.quote",
+  "pk": 11,
+  "fields": {
+    "text": "Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.",
+    "name": "Albert Einstein",
+    "email": "Albert@Einstein.com",
+    "rate": 0,
+    "is_moderated": false,
+    "created_at": "2021-06-05T09:15:09.126Z"
+  }
+},
+{
+  "model": "webapp.quote",
+  "pk": 12,
+  "fields": {
+    "text": "Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.",
+    "name": "Albert Einstein",
+    "email": "Albert@Einstein.com",
+    "rate": 0,
+    "is_moderated": false,
+    "created_at": "2021-06-05T09:15:09.815Z"
+  }
+},
+{
+  "model": "webapp.quote",
+  "pk": 13,
+  "fields": {
+    "text": "Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.",
+    "name": "Albert Einstein",
+    "email": "Albert@Einstein.com",
+    "rate": 0,
+    "is_moderated": false,
+    "created_at": "2021-06-05T09:15:10.496Z"
+  }
+},
+{
+  "model": "webapp.quote",
+  "pk": 16,
+  "fields": {
+    "text": "Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.",
+    "name": "Albert Einstein",
+    "email": "Albert@Einstein.com",
+    "rate": 0,
+    "is_moderated": false,
+    "created_at": "2021-06-05T10:58:05.340Z"
+  }
+},
+{
+  "model": "webapp.quote",
+  "pk": 17,
+  "fields": {
+    "text": "sdgvsdbgsbh",
+    "name": "rsdbhrsb",
+    "email": "bbrrdb@vsdb.com",
+    "rate": 0,
+    "is_moderated": false,
+    "created_at": "2021-06-05T11:19:40.312Z"
+  }
+},
+{
+  "model": "webapp.quote",
+  "pk": 18,
+  "fields": {
+    "text": "sdgvsdbgsbh",
+    "name": "rsdbhrsb",
+    "email": "bbrrdb@vsdb.com",
+    "rate": 0,
+    "is_moderated": false,
+    "created_at": "2021-06-05T11:21:25.256Z"
+  }
+},
+{
+  "model": "webapp.quote",
+  "pk": 19,
+  "fields": {
+    "text": "sdgvsdbgsbh",
+    "name": "rsdbhrsb",
+    "email": "bbrrdb@vsdb.com",
+    "rate": 0,
+    "is_moderated": false,
+    "created_at": "2021-06-05T11:25:22.197Z"
+  }
+},
+{
+  "model": "webapp.quote",
+  "pk": 20,
+  "fields": {
+    "text": "sdgvsdbgsbh",
+    "name": "rsdbhrsb",
+    "email": "bbrrdb@vsdb.com",
+    "rate": 0,
+    "is_moderated": false,
+    "created_at": "2021-06-05T11:25:43.286Z"
   }
 }
 ]
