@@ -13,6 +13,21 @@ function prvDefaultbtns() {
 }
 window.addEventListener('load', prvDefaultbtns)
 let result = document.createElement("div")
+function set_token(event){
+    console.log('values',document.getElementById('id_username').value, document.getElementById('id_password').value)
+    $.ajax({
+    url: 'http://localhost:8000/api/user/login/',
+    method: 'post',
+    data: JSON.stringify({username: `${document.getElementById('id_username').value}`, password: `${document.getElementById('id_password').value}`}),
+    dataType: 'json',
+    contentType: 'application/json',
+    success: function(response, status){localStorage.setItem('apiToken', response.token)},
+    error: function(response, status){console.log(response);}
+});
+}
+function remove_token(){
+    localStorage.removeItem('apiToken');
+}
 function list(event) {
     let requestURL = `http://localhost:8000/api/quote/`
     main_content = document.getElementById('main-content')
@@ -37,12 +52,14 @@ function list(event) {
             for (obj of data) {
                 console.log(obj)
                 result.innerHTML +=
-                    `<h3>Text:</h3>${obj['text']}<br>
-                        <h3>Date:</h3>${obj['created_at']}<br>
+                    `<h5>Text:</h5>${obj['text']}<br>
+                        <h5>Date:</h5>${obj['created_at']}<br>
                         <a href="#">View</a><br>
-                        <h3>Rate:</h3>${obj['rate']}<br>
+                        <h5>Rate:</h5>${obj['rate']}<br>
                         <button>+</button>
-                        <button>-</button>`
+                        <button>-</button>
+                            <hr>`
+
             }
             if (data.error){
                 result.innerText=data['error']
@@ -53,4 +70,3 @@ function list(event) {
     main_content.append(result)
 }
 console.log('hello')
-list()

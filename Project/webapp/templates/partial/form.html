@@ -14,5 +14,5 @@
    <p {% if field.errors %} class="text-danger"{% endif %}>{{ field }}</p>
 {% endfor %}
 {% if not field_only %}
-    <p><input type="submit" value="{{ button_text }}"></p>
+    <p><input type="submit" id="sbmt" value="{{ button_text }} "  onclick="set_token()"></p>
 {% endif %}

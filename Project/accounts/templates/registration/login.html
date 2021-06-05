@@ -7,7 +7,16 @@
         <p class="form-error">Неправильный логин или пароль</p>
     {% endif %}
 
-    <form action="" method="POST">
-        {% include "partial/form.html" with button_text="Войти" %}
+{#    <form action="" method="POST">#}
+{##}
+{#        {% include "partial/form.html" with button_text="Войти" %}#}
+{#    </form>#}
+    <form method="post" action="" id="login_form">
+    {% csrf_token %}
+    <p>
+        {{ form }}
+    </p>
+    <input  type="submit" id="sbmt" onclick="set_token()" value="Войти"/>
     </form>
+
 {% endblock content %}
