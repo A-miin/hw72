@@ -16,5 +16,17 @@
     </form>
     <div class="сontainer" id="view"></div>
 
+<form method="post" action="" id="update_quote_form">
+{#    {% csrf_token %}#}
+        <label for="update_quote_text"> Текст цитаты </label>
+        <input type="text" id="update_quote_text"><br>
+         <label> Статус </label>
+            <input type="radio" id="is_moderated_true" name="is_moderated" value="true">
+          <label for="male">Сделать активным</label><br>
+          <input type="radio" id="is_moderated_false" name="is_moderated" value="false">
+          <label for="female">Сделать не активным</label><br>
+        <input  class="action" type="submit" id="update_quote_sbmt" onclick="update_quote()" value="Создать"/>
+    </form>
+    <div class="сontainer" id="view"></div>
 
 {% endblock content %}
