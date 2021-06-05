@@ -58,36 +58,48 @@ function create_quote(){
     error: function(response, status){console.log(response);alert("Что-то пошло не так");}
 });
 }
-function quote_update(response){
+let updating_quote_id = 0
+function quote_update(id){
     view_content.style.display = 'none';
     result.style.display='none';
     update_form.style.display = 'block';
     create_form.style.display = 'none';
+    updating_quote_id = id
 
-    let is_moderated_true = document.getElementById('is_moderated_true')
-    let is_moderated_false = document.getElementById('is_moderated_false')
-    let quote_text = document.getElementById('update_quote_text')
-    quote_text.value = response['text']
-    if (is_moderated === response['is_moderated']){
-        is_moderated_true.checked=true;
-    }
-    else{
-        is_moderated_false.checked = false;
-    }
+    // let is_moderated_true = document.getElementById('is_moderated_true')
+    // let is_moderated_false = document.getElementById('is_moderated_false')
+    // let quote_text = document.getElementById('update_quote_text')
+    // quote_text.value = response['text']
+    // if (is_moderated === response['is_moderated']){
+    //     is_moderated_true.checked=true;
+    // }
+    // else{
+    //     is_moderated_false.checked = false;
+    // }
 
 }
 function save_quote(){
+    let radio_true = document.getElementById('is_moderated_true').value
+    let check = 'false'
+    if (radio_true==='true'){
+        check='true';
+    }
+    let h={}
+    console.log(localStorage.apiToken)
+    if (localStorage.apiToken) {
+        h={"Authorization": `Token ${localStorage.apiToken}`}
+    }
     $.ajax({
-    url: 'http://localhost:8000/api/quote/',
-    method: 'post',
+    url: `http://localhost:8000/api/quote/${updating_quote_id}/edit`,
+    method: 'put',
+        headers:h,
     data: JSON.stringify({
-        text: `${document.getElementById('new_quote_text').value}`,
-        name: `${document.getElementById('new_quote_name').value}`,
-        email: `${document.getElementById('new_quote_email').value}`
+        text: `${document.getElementById('update_quote_text').value}`,
+        is_moderated:`${check}`
         }),
     dataType: 'json',
     contentType: 'application/json',
-    success: function(response, status){console.log(response);alert("Цитата удачно создана!"); list();  },
+    success: function(response, status){console.log(response);alert("Цитата удачно изменена!"); quote_view(updating_quote_id);  },
     error: function(response, status){console.log(response);alert("Что-то пошло не так");}
 });
 }
@@ -128,7 +140,7 @@ function quote_view(id){
             view_content.style.display = 'block'
             view_content.innerHTML =
                             `
-                                <a href="#" onclick="quote_update(${response})" >Редактировать</a><br>
+                                <a href="#" onclick="quote_update(${obj['id']})" >Редактировать</a><br>
                                 <a href="#" onclick="quote_remove(${obj['id']})" >Удалить</a><br>
                                 <h5>Text:</h5>${response['text']}<br>
                                 <h5>Name:</h5>${response['name']}<br>
