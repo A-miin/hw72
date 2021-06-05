@@ -3,25 +3,46 @@ from rest_framework import generics, status
 from rest_framework.permissions import IsAdminUser
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.permissions import IsAuthenticated, SAFE_METHODS, AllowAny, IsAuthenticatedOrReadOnly, IsAdminUser
+# from rest_framework.
 
 from webapp.models import Quote
-from api.serializers import QuoteSerializer
+from api.serializers import QuoteSerializer, QuoteUpdateSerializer
+
 from django.shortcuts import get_object_or_404
 import json
 class QuoteList(generics.ListCreateAPIView):
     serializer_class = QuoteSerializer
-
     def get_queryset(self):
-        if not self.request.user.is_anonymous and self.request.user.is_staff:
+        if self.request.user.is_staff:
             return Quote.objects.all()
         return Quote.objects.filter(is_moderated=True)
-    # def get_queryset(self):
-    #     if self.request.user.is_authenticated and self.request.user.has_perm()
 
-class QuoteView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Quote.objects.filter(is_moderated=True)
+
+class QuoteView(generics.RetrieveAPIView):
     serializer_class = QuoteSerializer
-    permission_classes = [3]
+    # permission_classes = [IsAuthenticatedOrReadOnly]
+    def get_queryset(self):
+        if self.request.user.is_staff:
+            return Quote.objects.all()
+        return Quote.objects.filter(is_moderated=True)
+
+    # def get_permissions(self):
+    #     if self.request.method in SAFE_METHODS:
+    #         return (AllowAny(),)
+    #     return (IsAdminUser(),)
+
+
+class QuoteUpdateView(generics.UpdateAPIView):
+    serializer_class = QuoteUpdateSerializer
+    permission_classes = [IsAdminUser]
+    queryset = Quote.objects.all()
+
+class QuoteDeleteView(generics.DestroyAPIView):
+    serializer_class = QuoteUpdateSerializer
+    permission_classes = [IsAdminUser]
+    queryset = Quote.objects.all()
+
 
 class QuoteRate(APIView):
     def get_object(self, pk):

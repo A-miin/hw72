@@ -14,3 +14,13 @@ class QuoteSerializer(serializers.ModelSerializer):
                   'created_at'
                   )
         read_only_fields = ('id', 'created_at')
+
+
+class QuoteUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Quote
+        fields = (
+                  'text',
+                'is_moderated',
+                  )
+
