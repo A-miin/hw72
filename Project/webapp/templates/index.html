@@ -4,6 +4,17 @@
 <script src="{% static 'js/main.js' %}"></script>
 {% block content %}
     <div class="сontainer" id="main-content"></div>
+    <form method="post" action="" id="new_quote_form">
+{#    {% csrf_token %}#}
+        <label for="new_quote_text"> Текст цитаты </label>
+        <input type="text" id="new_quote_text"><br>
+         <label for="new_quote_name">Имя </label>
+        <input type="text" id="new_quote_name"><br>
+         <label for="new_quote_email"> Почта </label>
+        <input type="email" id="new_quote_email"><br>
+        <input  class="action" type="submit" id="new_quote_sbmt" onclick="create_quote()" value="Создать"/>
+    </form>
+    <div class="сontainer" id="view"></div>
 
 
 {% endblock content %}
